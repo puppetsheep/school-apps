@@ -1,0 +1,11 @@
+/* pages/net/net.wxss */
+.goTop{
+  height: 120rpx;
+  width: 120rpx;
+  position: fixed;
+  bottom: 50rpx;
+  background: rgba(255, 255, 255, 0.3);
+  right: 50rpx;
+  border-radius: 28%;
+  z-index: 99999;
+}

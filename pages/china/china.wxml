@@ -1,0 +1,68 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">中国近现代史纲要</view>
+</cu-custom>
+<view class="solids-bottom padding-xs flex align-center">
+  <view class="flex-sub text-center">
+    <view class="padding text-blue text-shadow"><text>“本词条谨以大学教材为据，仅用于考点梳理\n请酌情参考”</text></view>
+  </view>
+</view>
+<image src='https://api.puppetsheep.cn/miniprogram/imgs/gotop.png' class='goTop' hidden='{{!floorstatus}}' bindtap="gotop"></image>
+
+<view class="cu-timeline" wx:for="{{china}}" wx:for-index="idx" wx:key="index">
+  <!-- <view class="cu-time"></view> -->
+  <view class="cu-item text-green">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-gradual-green radius shadow">{{item.title||''}}</view>
+      </view>
+      <view wx:for="{{china[idx].section}}" wx:for-index="idex" wx:key="index">
+        <view class="cu-capsule radius">
+          <view class="cu-tag radius line-green" style="margin-left:-5px;">
+            <text decode='true'>{{item.subtitle||''}}</text>
+          </view>
+        </view>
+        <view wx:key="index" wx:if="{{china[idx].section[idex].test}}" class="cu-tag bg-blue light radius fr" bindtap="showModal" data-target="{{'1'+idx+idex}}">考点串讲</view>
+        <view class="margin-sm" wx:for="{{china[idx].section[idex].content}}" wx:key="index">
+          <view class="text-darkgray text-shadow">
+            <text class="cuIcon-title text-olive"></text>
+            <text decode='true'>{{item.des||''}}</text>
+            <view class="text-gray" style="text-indent:2em;">
+              <text decode='true'>{{item.detail||''}}</text>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:for="{{china}}" wx:for-index="idx" wx:key="index">
+  <view wx:for="{{china[idx].section}}" wx:for-index="idex" catchtap="hideModal" class="margin-lg" wx:key="index">
+    <view class="cu-modal {{modalName=='1'+idx+idex?'show':''}}" style="z-index:99999">
+      <view class="cu-dialog" catchtap>
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">考点串讲</view>
+          <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding text-blue text-left text-df" style="text-indent:2em;">
+          <text decode='true'>{{item.subtitle||''}}</text>
+        </view>
+        <view wx:for="{{china[idx].section[idex].test[pageindex]}}" wx:key="index" wx:for-index="dex">
+          <view class="padding-left padding-right padding-bottom text-grey text-left text-df" style="text-indent:2em;">
+            <!-- <text decode='true'>{{index+1}}.{{item||''}}</text> -->
+            <rich-text nodes="{{item||''}}" selectable></rich-text>
+          </view>
+        </view>
+        <view class="cu-bar bg-white">
+          <view class="action margin-0 flex-sub solid-left" bindtap="pagenext">{{pageindex > 0?"上一条":''}}</view>
+          <view class="action margin-0 flex-sub solid-left">{{pageindex+1}}/{{china[idx].section[idex].test.length}}</view>
+          <view class="action margin-0 flex-sub solid-left" bindtap="pageback">{{!china[idx].section[idex].test[pageindex+1].text ?'':"下一条"}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

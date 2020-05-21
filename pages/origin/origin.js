@@ -1,66 +1,36 @@
-// pages/origin/origin.js
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    counting: 0,
+    colorCount: 0,
+    mathCount: 0,
+    networkCount: 0,
+    chinaCount: 0,
+    version: '',
+    ColorList: app.globalData.ColorList
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'https://api.puppetsheep.cn/miniprogram/counting.json',
+      success: function (res) {
+        if (res.statusCode == 200) {
+          that.setData({
+            version: res.data.version
+          })
+        }
 
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-
+    // 用户点击右上角分享
+    return {
+      title: '校园应用', // 分享标题
+      desc: '每日打卡，每日学一点', // 分享描述
+      path: 'pages/index/index' // 分享路径
+    }
   }
 })

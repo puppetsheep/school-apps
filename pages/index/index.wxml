@@ -45,11 +45,17 @@
 
 
 <!-- 右下角菜单 -->
-<view class="item padding" bindtap="openhome">
-  <text class="cuIcon-wefill lg"></text>
+<!-- <view class="item padding" bindtap="openhome"> -->
+<view class="cu-bar item padding margin-right margin-bottom-sm" bindtap="openhome">
+  <view class="action sub-title">
+    <text class="cuIcon-wefill" style="font-size:60rpx;"></text>
+    <text class="text-Abc" style="opacity:0.618">校园Mune</text>
+  </view>
 </view>
+  <!-- <text class="cuIcon-wefill lg"></text> -->
+<!-- </view> -->
 <!-- 菜单内容 -->
-<view class="home {{back?'hide':'show'}}" catchtouchmove bindtap="openhome" wx:if="{{homes}}">
+<!-- <view class="home {{back?'hide':'show'}}" catchtouchmove bindtap="openhome" wx:if="{{homes}}">
   <view class="close padding-lg {{toggleDelay?'animation-slide-bottom':''}} margin-bottom-lg" style="animation-delay:1s;">
     <text class="cuIcon-roundclose lg"></text>
   </view>
@@ -66,7 +72,7 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->
 <view catchtouchmove class="loading" wx:if="{{picdone}}">
   <view class='cu-load load-modal'>
     <view class='cuIcon-pulldown text-orange'></view>

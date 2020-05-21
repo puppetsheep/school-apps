@@ -186,23 +186,26 @@ Page({
     }, 1000)
   },
   openhome() {
+    wx.navigateTo({
+      url: '../origin/origin',
+    })
     var that = this;
-    if (this.data.homes == false) {
-      that.setData({
-        homes: true,
-        back:false
-      })
-    }else{
-      that.setData({
-        back: true
-      })
-      setTimeout(function () {
-        that.setData({
-          homes: false,
-          showabout: false
-        })
-      }, 800)
-    }
+    // if (this.data.homes == false) {
+    //   that.setData({
+    //     homes: true,
+    //     back:false
+    //   })
+    // }else{
+    //   that.setData({
+    //     back: true
+    //   })
+    //   setTimeout(function () {
+    //     that.setData({
+    //       homes: false,
+    //       showabout: false
+    //     })
+    //   }, 800)
+    // }
   },
   opendate(){
     wx.navigateTo({
@@ -285,5 +288,13 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onShareAppMessage: function () {
+    // 用户点击右上角分享
+    return {
+      title: '校园应用', // 分享标题
+      desc: '每日打卡，每日学一点', // 分享描述
+      path: 'pages/index/index' // 分享路径
+    }
   }
 })

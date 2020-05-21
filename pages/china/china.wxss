@@ -1,0 +1,11 @@
+/* pages/china/china.wxss */
+.goTop{
+  height: 100rpx;
+  width: 100rpx;
+  position: fixed;
+  bottom: 50rpx;
+  background: rgba(255, 255, 255, 0.3);
+  right: 50rpx;
+  border-radius: 28%;
+  z-index: 99;
+}

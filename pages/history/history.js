@@ -13,8 +13,8 @@ Page({
     section: [],
     picdone: false,
     videoAd: false,
-    slice:[],
-    swiper:[]
+    slice: [],
+    swiper: []
   },
   createlist() {
     var list = [{}];
@@ -33,7 +33,7 @@ Page({
     this.setData({
       modalName: e.currentTarget.dataset.target
     })
-    console.info(e.currentTarget.dataset.target)
+    // console.info(e.currentTarget.dataset.target)
   },
   hideModal(e) {
     this.setData({
@@ -187,17 +187,17 @@ Page({
     })
     wx.request({
       url: 'https://api.puppetsheep.cn/school/swiper.json',
-      success:function(res){
-        if(res.statusCode == 200){
+      success: function(res) {
+        if (res.statusCode == 200) {
           that.setData({
-            swiper:res.data
+            swiper: res.data
           })
         }
       }
     })
 
   },
-  exp(){
+  exp() {
     var BirthDay = new Date("05/01/2020 00:00:00");
     var today = new Date();
     var timeold = (today.getTime() - BirthDay.getTime());
@@ -208,22 +208,27 @@ Page({
     var daysold = Math.floor(e_daysold);
     // console.log(daysold, today, timeold, sectimeold, secondsold, msPerDay, e_daysold)
     let slice = this.data.section;
-    let daytemp = daysold+1;
-    for(let i=0;i<slice.length;i++){
-      for (let j = 0; j < slice[i].day.length;j++){
-        daytemp -= 1;
-        if(daytemp < 0){
-          slice[i].day[j] = null
+    let daytemp = daysold + 1;
+    for (let i = 0; i < slice.length; i++) {
+      if (daytemp > slice[i].day.length) {
+        daytemp -= slice[i].day.length
+        continue;
+      } else {
+        for (let j = 0; j < slice[i].day.length; j++) {
+          daytemp -= 1;
+          if (daytemp < 0) {
+            slice[i].day[j] = null
+          }
         }
-      }
-      slice[i].day = [...new Set(slice[i].day)]
-      if (slice[i].day[slice[i].day.length]==null){
-        slice[i].day.pop()
+        slice[i].day = [...new Set(slice[i].day)]
+        if (slice[i].day[slice[i].day.length] == null) {
+          slice[i].day.pop()
+        }
       }
     }
     slice = [...new Set(slice)]
-    for (let k = slice.length;k>0;k-- ){
-      if (slice[k-1].day.length == 0) {
+    for (let k = slice.length; k > 0; k--) {
+      if (slice[k - 1].day.length == 0) {
         slice.pop()
       }
     }

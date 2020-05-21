@@ -3,7 +3,12 @@
     "pages/index/index",
     "pages/history/history",
     "pages/origin/origin",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/guose/guose",
+    "pages/log/log",
+    "pages/china/china",
+    "pages/sysos/sysos",
+    "pages/net/net"
   ],
   "window": {
     "backgroundTextStyle": "light",

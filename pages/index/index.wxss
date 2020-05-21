@@ -24,7 +24,7 @@ page {
 
 .item {
   position: fixed;
-  font-size: 72rpx;
+  font-size: 96rpx;
   right: 0px;
   bottom: 0px;
   z-index: 10;

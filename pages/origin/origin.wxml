@@ -1,3 +1,92 @@
 <!--pages/origin/origin.wxml-->
-<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">原图下载</view></cu-custom>
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">校园应用</view></cu-custom>
+<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+  <view class="flex justify-center">
+    <view class="text-center">
+      <text class="text-grey text-xl">陪你每日学一点知识</text>
+    </view>
+  </view>
+</view>
+<view class="grid col-2 padding-sm">
+  <view class="padding-sm">
+    <navigator url="../guose/guose">
+      <view class="bg-gradual-pink padding radius text-center shadow-blur">
+        <view class="text-lg">中国传统色</view>
+        <view class="margin-top-sm text-Abc">千百色，识几何？</view>
+      </view>
+    </navigator>
+  </view>
 
+  <view class="padding-sm">
+    <navigator url="../net/net">
+      <view class="bg-gradual-purple padding radius text-center shadow-blur">
+        <view class="text-lg">计算机网络术语</view>
+        <view class="margin-top-sm text-Abc">90%的人看不懂</view>
+      </view>
+    </navigator>
+  </view>
+  
+  <!-- <view class="padding-sm" bindtap="gongyang">
+    <view class="bg-gradual-yellow padding radius text-center shadow-blur">
+      <view class="text-lg">公羊阅读</view>
+      <view class="margin-top-sm text-Abc">小说阅读小程序</view>
+    </view>
+  </view> -->
+  
+  <view class="padding-sm">
+    <navigator url="../sysos/sysos">
+      <view class="bg-gradual-yellow padding radius text-center shadow-blur">
+        <view class="text-lg">操作系统</view>
+        <view class="margin-top-sm text-Abc">词典</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="padding-sm">
+    <navigator url="../history/history">
+      <view class="bg-gradual-green padding radius text-center shadow-blur">
+        <view class="text-lg">每日语录</view>
+        <view class="margin-top-sm text-Abc">包含原图下载</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="padding-sm">
+    <navigator url="../china/china">
+      <view class="bg-gradual-red padding radius text-center shadow-blur">
+        <view class="text-lg">中国近现代史纲要笔记</view>
+        <view class="margin-top-sm text-Abc">考点笔记梳理</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="padding-sm">
+    <navigator url="../about/about">
+      <view class="bg-gradual-orange padding radius text-center shadow-blur">
+        <view class="text-lg">关于本小程序的相关说明</view>
+        <view class="margin-top-sm text-abc">会附上更新内容的</view>
+      </view>
+    </navigator>
+  </view>
+  <!-- <view class="padding-sm">
+    <navigator url="../math/math">
+      <view class="bg-gradual-orange padding radius text-center shadow-blur">
+        <view class="text-lg">数学公式</view>
+        <view class="margin-top-sm text-Abc">共 {{mathCount||0}} 条</view>
+      </view>
+    </navigator>
+  </view> -->
+  <!-- <view class="padding-sm">
+    <navigator url="../log/log">
+      <view class="bg-gradual-blue padding radius text-center shadow-blur">
+        <view class="text-lg">更新日志</view>
+        <view class="margin-top-sm text-abc">当前版本：{{version||"未知"}}</view>
+      </view>
+    </navigator>
+  </view> -->
+
+  <!-- <view class="padding-sm">
+    <view class="bg-gradual-green padding radius text-center shadow-blur">
+      <view class="text-lg">马克思主义基本原理概论</view>
+      <view class="margin-top-sm text-Abc">共 {{maxCount||0}} 条</view>
+    </view>
+  </view> -->
+
+</view>

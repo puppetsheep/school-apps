@@ -29,8 +29,8 @@
         <view class="padding text-right text-grey">——{{item.author}}</view>
       </view>
     <view class="cu-bar bg-white">
-      <view class="action margin-0 flex-sub text-{{item.dateColor}} solid-left" bindtap="originimage" data-img2="{{item.img2}}">下载原图</view>
-      <view class="action margin-0 flex-sub text-blue solid-left" bindtap="hideModal">关闭</view>
+      <view class="action margin-0 flex-sub text-{{item.dateColor}}" bindtap="originimage" data-img2="{{item.img2}}">下载原图</view>
+      <view class="action margin-0 flex-sub text-blue" bindtap="hideModal">关闭</view>
       <!-- <view class="action margin-0 flex-sub text-cyan solid-left" bindtap="hideModal">复制文字</view> -->
     </view>
   </view>

@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">计算机网络术语</view>
+</cu-custom>
+
+<image src='https://api.puppetsheep.cn/miniprogram/imgs/gotop.png' class='goTop' hidden='{{!floorstatus}}' bindtap="gotop"></image>
+
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs" wx:for="{{showAll==false?taglist:network}}" wx:key="index">
+    <view class="cu-tag radius line-blue" bindtap="showModal" data-target="{{index}}">{{item.en}}</view>
+  </view>
+  <view class="padding-xs">
+    <view class="cu-tag radius line-red" bindtap="showAll" data-target="{{index}}">{{showAll==false?"展示所有":"收起标签"}}</view>
+  </view>
+</view>
+<view wx:for="{{network}}" catchtap="hideModal" wx:key="index">
+  <view class="cu-modal {{modalName==index?'show':''}}">
+    <view class="cu-dialog" catchtap>
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">{{item.en}}（{{item.zh}}）</view>
+      </view>
+      <view class="padding-xl text-gray text-left text-df" style="text-indent:2em;">
+        <text decode='true'>{{item.des}}</text>
+      </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
+    </view>
+    </view>
+  </view>
+</view>
+
+<view class="padding-sm" wx:for="{{network}}" wx:key="index">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text>
+      <view class="text-shadow text-black">{{item.en}}</view>
+      <view class="text-shadow text-purpleShadow">（{{item.zh}}）</view>
+    </view>
+  </view>
+  <view class="padding bg-white text-df">
+    <view class="text-left text-gray padding-left" style="text-indent:2em;"><text decode='true'>{{item.des}}</text></view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">中国传统色</view>
+</cu-custom>
+
+<!-- <view class="grid col-3 padding-sm">
+  <view class="padding-sm" wx:for="{{ColorList}}" wx:key>
+    <view class="bg-{{item.name}} padding radius text-center shadow-blur">
+      <view class="text-lg">{{item.title}}</view>
+      <view class="margin-top-sm text-Abc">{{item.name}}</view>
+    </view>
+  </view>
+</view> -->
+<view wx:for="{{colorList}}" catchtap="hideModal" wx:key="index">
+  <view class="cu-modal {{modalName==index?'show':''}}">
+    <view class="cu-dialog" catchtap>
+      <!-- <view class="cu-bar bg-white justify-end">
+        <view class="content">{{item.name}}</view>
+      </view> -->
+      <view class="padding-xl text-gray text-center text-xl texture" style="background-color:{{item.hex}};padding-top:600rpx;"  bindtap="CopyLink" data-link="{{item.hex}}">
+        <text decode='true'>{{item.name}}\n{{item.RGB}}\n{{item.hex}}</text>
+      </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">对比完成</view>
+    </view>
+    </view>
+  </view>
+</view>
+
+<view class="grid col-2 padding-sm">
+  <view class="padding-sm" wx:for="{{colorList}}" wx:key="index">
+    <view class="padding radius text-center shadow-blur texture" style="background-color:{{item.hex}};" bindtap="showModal" data-target="{{index}}">
+      <view class="text-lg">{{item.name}}</view>
+      <view class="margin-top-sm text-abc">{{item.hex}}</view>
+      <!-- <view class="margin-top-sm text-Abc">{{item.rgb}}</view> -->
+    </view>
+  </view>
+</view>
