@@ -1,0 +1,100 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>历史记录</view>
+  </view>
+</view>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiper}}" wx:key="index">
+    <image src="{{item}}" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+<view wx:for="{{section}}" wx:key="index">
+<view wx:for="{{section[index].day}}" wx:key="index" wx:for-index="idx">
+  <view class="cu-modal {{modalName==index+'0'+idx?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('{{item.img1}}');height:260px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="flex-sub text-left">
+        <view class="text-df padding" style="text-indent:2em;">
+          <text class="text-grey" decode="true">{{item.section}}</text>
+        </view>
+        <view class="padding text-right text-grey">——{{item.author}}</view>
+      </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-{{item.dateColor}} solid-left" bindtap="originimage" data-img2="{{item.img2}}">下载原图</view>
+      <view class="action margin-0 flex-sub text-blue solid-left" bindtap="hideModal">关闭</view>
+      <!-- <view class="action margin-0 flex-sub text-cyan solid-left" bindtap="hideModal">复制文字</view> -->
+    </view>
+  </view>
+</view>
+</view>
+</view>
+
+
+
+<view catchtouchmove class="loading" wx:if="{{picdone}}">
+  <view class='cu-load load-modal'>
+    <view class='cuIcon-pulldown text-orange'></view>
+    <view class='gray-text'>下载中...</view>
+  </view>
+</view>
+
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{section}}" wx:key="index" bindtap='tabSelect' data-id="{{index}}">
+      {{item.name}}月
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{section}}" wx:key="index" id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text> {{item.name}}月 </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item" wx:for="{{section[index].day}}" wx:key="index" wx:for-index="idx" bindtap="showModal" data-target="{{index+'0'+idx}}">
+          <view class="cu-avatar radius lg" style="background-image:url({{item.img1}});"></view>
+          <view class="content">
+            <view class="text-{{item.dateColor}}">
+              <text class="text-cut">{{item.author}}</text>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut">{{item.section}}</text>
+            </view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">{{item.weekzh}}</view>
+            <view class="cu-tag line-pink sm"># {{item.daytime}}</view>
+          </view>
+        </view>
+        <!-- <view class="cu-item cur" wx:for="{{10}}">
+          <view class="cu-avatar radius lg" style="background-image:url(https://ae01.alicdn.com/kf/Ha27ad6ee59274bd09724e4ae1f3afa16C.png);">
+            <view class="cu-tag badge"></view>
+          </view>
+          <view class="content">
+            <view>
+              <text class="text-cut">瓦罗兰大陆-睡衣守护者-新手保护营</text>
+              <view class="cu-tag round bg-orange sm">6人</view>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut"> 伊泽瑞尔：<text class="cuIcon-locationfill text-orange margin-right-xs"></text> 传送中...</text>
+            </view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <view class="cuIcon-notice_forbid_fill text-gray"></view>
+          </view>
+        </view> -->
+      </view>
+      
+    </view>
+  </scroll-view>
+</view>

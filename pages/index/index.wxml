@@ -1,0 +1,99 @@
+<view style="height:30px;"></view>
+
+<!-- 左上角week显示 -->
+<view class="cu-bar">
+  <view class="action sub-title">
+    <text class="text-xxl text-bold text-{{content.dateColor}}">{{content.weekzh}}</text>
+    <text class="text-Abc text-{{content.dateColor}}">{{content.week}}</text>
+  </view>
+</view>
+
+<!-- 左右下方斜遮挡块 -->
+<view class="mask-left"></view>
+<view class="mask-right"></view>
+
+<!-- 左下角日期 -->
+<view class="date padding-sm" bindtap="opendate">
+  <text class="text-gray"><text class="text-sl text-grey">{{content.daytime}}</text>▲\n{{content.month}}.{{content.year}}</text>
+</view>
+<!-- <view class="chosedate {{back?'hide':'show'}}" catchtouchmove bindtap="opendate" wx:if="{{chosedate}}"> -->
+  <!-- <view style="height:80px;"></view> -->
+  <!-- 年份选择 -->
+  <!-- <view class="margin padding-sm margin-top-xl" style="height:30px;width:auto;" catchtap>
+    <view class="bgday fr text-white radius padding-sm {{toggleDelay?'animation-slide-bottom':''}}" style="animation-delay:0.2s;margin-right:50vw;">2020年</view>
+  </view> -->
+  <!-- 月份选择 -->
+  <!-- <view wx:for="{{dateSelect}}" wx:key="index" catchtap>
+    <view class="cf padding-top-sm padding-left-sm">
+      <view class="bgmonth text-white radius fl padding-sm {{toggleDelay?'animation-slide-bottom':''}}" style="animation-delay:{{(index+1)*0.1}}s;" bindtap="choseMonth" data-mon="{{index}}">
+      {{item.number}}月.{{item.month}}
+      </view>
+    </view>
+  </view> -->
+  <!-- 日期选择 -->
+  <!-- <view class="dayselect" wx:for="{{dateSelect}}" wx:for-item="iname" wx:key="index">
+    <view class="grid col-3 padding-xs">
+      <view class="padding-xs" wx:for="{{dateSelect[monthforday].day}}" wx:key="index">
+        <view class="bgday padding-sm radius text-center shadow-blur {{toggleDelay?'animation-slide-bottom':''}}" style="animation-delay:{{(index+1)*0.05}}s;" bindtap="choseDay" data-day="{{item}}" data-month="{{iname.number}}">
+          <view class="text-lg text-white">{{item}}号</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+<!-- </view> -->
+
+
+
+<!-- 右下角菜单 -->
+<view class="item padding" bindtap="openhome">
+  <text class="cuIcon-wefill lg"></text>
+</view>
+<!-- 菜单内容 -->
+<view class="home {{back?'hide':'show'}}" catchtouchmove bindtap="openhome" wx:if="{{homes}}">
+  <view class="close padding-lg {{toggleDelay?'animation-slide-bottom':''}} margin-bottom-lg" style="animation-delay:1s;">
+    <text class="cuIcon-roundclose lg"></text>
+  </view>
+  <view class="cu-card" catchtap>
+    <view style="height:80px;"></view>
+
+    <view class="padding-sm">
+      <view class="homelist padding grid col-1">
+        <view class="bg-{{item.color}} {{toggleDelay?'animation-slide-bottom':''}} margin-top-lg padding-lg radius text-center shadow-blur texture" style="animation-delay:{{(index+1)*0.1}}s;" bindtap="{{item.bindtap}}" wx:for="{{app.menu}}" wx:key="index">
+          <text class="text-xl">{{item.name}}
+        </text>
+        </view>
+      <view class="text-lg text-white padding gargin-lg {{toggleDelay?'animation-slide-bottom':''}}" style="animation-delay:0.5s;" wx:if="{{showabout}}"><text>{{app.about}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view catchtouchmove class="loading" wx:if="{{picdone}}">
+  <view class='cu-load load-modal'>
+    <view class='cuIcon-pulldown text-orange'></view>
+    <view class='gray-text'>下载中...</view>
+  </view>
+</view>
+
+<view class="cu-card case ">
+  <view class="cu-item">
+    <view class="image">
+      <image src="{{content.img1}}" lazy-load="true" mode="widthFix"></image>
+      <!-- <view class="cu-tag bg-blue">pixivc</view> -->
+      <view class="cu-bar bg-shadeBottom" bindtap="originimage">
+        <text class="text-cut" style="margin:0 auto;">下载原图</text>
+      </view>
+    </view>
+
+    <view class="padding-xs flex align-center">
+      <!-- <view class="padding">22</view> -->
+      <view class="flex-sub text-left">
+        <view class="text-xl padding" style="text-indent:2em;">
+          <text class="text-grey" decode="true">{{content.section}}</text>
+        </view>
+        <view class="padding text-right text-grey"> <text decode="true"> ——{{content.author}} </text></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view style="height:150rpx;"></view>

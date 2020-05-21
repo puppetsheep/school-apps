@@ -1,0 +1,133 @@
+@import "../../colorui/animation.wxss";
+
+/* .tower-swiper .tower-item {
+  transform: scale(calc(0.5 + var(--index) / 10));
+  margin-left: calc(var(--left) * 100rpx - 150rpx);
+  z-index: var(--index);
+}
+
+.card-swiper {
+  height: 100vh !important;
+} */
+
+page {
+  /* background-image: linear-gradient(45deg, #ffffff, #f8f4ed,#fffef9,#bbb5ac); */
+  background-color: white;
+}
+
+.date {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  z-index: 10;
+}
+
+.item {
+  position: fixed;
+  font-size: 72rpx;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  color: #f0ada0;
+}
+
+.close {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  z-index: 30;
+  font-size: 99rpx;
+  color: #fff;
+}
+
+.mask-left {
+  position: fixed;
+  left: -90px;
+  bottom: -90px;
+  z-index: 5;
+  background-image: linear-gradient(45deg, #fff, rgba(255, 255, 255, 0.875));
+  transform: rotate(45deg);
+  /* background-color: rgba(255, 255, 255, 0.875); */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.mask-right {
+  position: fixed;
+  right: -75px;
+  bottom: -75px;
+  z-index: 5;
+  transform: rotate(45deg);
+  /* background-color: rgba(255, 255, 255, 0.875); */
+  background-image: linear-gradient(-45deg, #fff, rgba(255, 255, 255, 0.875));
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.chosedate{
+  position: fixed;
+  top: 0px;
+  overflow: hidden;
+  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(45deg,#6a81afa9,#313946cc)
+}
+.dayselect{
+  position: fixed;
+  /* background-color: rgb(255, 0, 0); */
+  width: 72vw;
+  height: 80vh;
+  right: 0;
+  top: 80px;
+}
+.home {
+  position: fixed;
+  top: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(60, 60, 60, 0.618);
+}
+.bgmonth{
+  background-color: rgba(255, 255, 255, 0.096);
+  border: 1rpx rgba(206, 206, 206, 0.589) solid;
+}
+.bgday{
+  background-color: rgba(253, 253, 253, 0.096);
+  border: 1rpx white solid;
+}
+.homelist{
+  width: 90%;
+  margin: 0 auto;
+}
+.loading{
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  overflow: hidden;
+}
+.hide{
+  animation:hide 0.8s ease-out;
+}
+.show{
+  animation:show 0.8s ease-out; 
+}
+
+@keyframes show 
+{
+0% {opacity:0;}
+100% {opacity:1;}
+}
+@keyframes hide 
+{
+0% {opacity:1;}
+100% {opacity:0;}
+}
+
