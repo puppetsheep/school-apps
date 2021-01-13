@@ -49,7 +49,7 @@
 <view class="cu-bar item padding margin-right margin-bottom-sm" bindtap="openhome">
   <view class="action sub-title">
     <text class="cuIcon-wefill" style="font-size:60rpx;"></text>
-    <text class="text-Abc" style="opacity:0.618">校园Mune</text>
+    <text class="text-Abc" style="opacity:0.618">校园app</text>
   </view>
 </view>
   <!-- <text class="cuIcon-wefill lg"></text> -->

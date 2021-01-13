@@ -1,1 +1,4 @@
 /* pages/origin/origin.wxss */
+page{
+  background-color: #e4dfd7;
+}

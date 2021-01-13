@@ -1,9 +1,9 @@
 <!--pages/origin/origin.wxml-->
-<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">校园应用</view></cu-custom>
+<cu-custom bgColor="" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">校园应用</view></cu-custom>
 <view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
   <view class="flex justify-center">
     <view class="text-center">
-      <text class="text-grey text-xl">陪你每日学一点知识</text>
+      <text class="text-grey text-xl">陪你每一天，知识多一点</text>
     </view>
   </view>
 </view>
